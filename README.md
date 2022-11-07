@@ -9,7 +9,3 @@ Keagan
 Gina
 
 Ethan
-
-
-## Project Proposal:
-//TODO
