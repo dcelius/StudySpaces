@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     tools:context=".MainActivity">
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
         android:hint="First Name"
         android:padding="10dp"
         android:textColor="#FFFFFF"
@@ -46,7 +46,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
         android:hint="Last Name"
         android:padding="10dp"
         android:textColor="#FFFFFF"
@@ -61,7 +61,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
         android:hint="Email"
         android:padding="10dp"
         android:textColor="#FFFFFF"
@@ -76,8 +76,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
         android:hint="Password"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#86FFFFFF" />
@@ -87,15 +88,14 @@
         android:layout_width="128dp"
         android:layout_height="68dp"
         android:layout_below="@id/regPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif-medium"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
         android:text="Sign in"
         android:textColor="#005335"
         android:textSize="20sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
