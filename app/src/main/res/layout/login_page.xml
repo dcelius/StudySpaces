@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background3"
     tools:context=".MainActivity">
 
     <TextView
@@ -32,7 +32,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="6dp"
         android:hint="Username"
         android:padding="10dp"
         android:textColor="#FFFFFF"
@@ -47,8 +49,11 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp"
-        android:background="#30FFFFFF"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="6dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#86FFFFFF" />
@@ -73,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnLogIn"
-        android:layout_marginStart="83dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="105dp"
         android:text="Not registered yet?" />
 
@@ -82,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnLogIn"
-        android:layout_marginStart="223dp"
+        android:layout_marginStart="221dp"
         android:layout_marginTop="102dp"
         android:text="Register here!"
         android:textColor="#005335"
