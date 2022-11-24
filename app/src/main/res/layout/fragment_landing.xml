@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#005335"
+    tools:context=".LandingFragment">
+
+    <Button
+        android:id="@+id/btnLandingPage"
+        android:layout_width="128dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="588dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign in"
+        android:layout_centerHorizontal="true"
+        android:textColor="#005335"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="253dp"
+        android:layout_height="223dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="240dp"
+        app:srcCompat="@drawable/logo2"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+</RelativeLayout>
