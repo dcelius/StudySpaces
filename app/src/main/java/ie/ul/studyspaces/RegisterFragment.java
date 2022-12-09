@@ -107,8 +107,8 @@ public class RegisterFragment extends Fragment {
                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                             @Override
                                             public void onSuccess(DocumentReference documentReference) {
-                                                Toast.makeText(getActivity(), "Your registration was successful", Toast.LENGTH_SHORT).show();
                                                 Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
+                                                Toast.makeText(getActivity(), "Your registration was successful", Toast.LENGTH_SHORT).show();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
