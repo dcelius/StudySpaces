@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Study Spaces</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="locations">
+        <item>Library</item>
+        <item>RedRaisinsCafe</item>
+        <item>CSISCafe</item>
+        <item>SchrodingerCommunal</item>
+        <item>HealthSciencesCafe</item>
+        <item>FoundationAtriumCommunal</item>
+        <item>KemmyChillOutArea</item>
+        <item>MedicalSchoolCafeAndCommonArea</item>
+        <item>AnalogCafe</item>
+        <item>PESSCafe</item>
+        <item>MedicalSchoolAtrium</item>
+    </string-array>
 </resources>
