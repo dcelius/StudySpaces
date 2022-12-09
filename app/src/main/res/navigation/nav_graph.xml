@@ -10,7 +10,11 @@
         android:id="@+id/mapsFragment"
         android:name="ie.ul.studyspaces.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_optionFragment"
+            app:destination="@id/optionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="ie.ul.studyspaces.LoginFragment"
@@ -41,4 +45,9 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/optionFragment"
+        android:name="ie.ul.studyspaces.OptionFragment"
+        android:label="fragment_option"
+        tools:layout="@layout/fragment_option" />
 </navigation>
