@@ -2,16 +2,16 @@
     <string name="app_name">Study Spaces</string>
 
     <string-array name="locations">
-        <item>library</item>
-        <item>redraisinscafe</item>
-        <item>csiscafe</item>
-        <item>schrodingercommunal</item>
-        <item>healthsciencescafe</item>
-        <item>foundationatriumcommunal</item>
-        <item>kemmychilloutarea</item>
-        <item>medicalschoolcafeandcommonarea</item>
-        <item>analogcafe</item>
-        <item>pesscafe</item>
-        <item>medicalschoolatrium</item>
+        <item>Glucksman Library</item>
+        <item>Red Raisins Cafe</item>
+        <item>CSIS Cafe</item>
+        <item>Schrodinger Communal</item>
+        <item>Health Sciences Cafe</item>
+        <item>Foundation Atrium Communal</item>
+        <item>Kemmy Chill Out Area</item>
+        <item>Medical School Cafe and Common Area</item>
+        <item>Analog Cafe</item>
+        <item>PESS Cafe</item>
+        <item>Medical School Atrium</item>
     </string-array>
 </resources>
