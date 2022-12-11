@@ -160,7 +160,7 @@ public class RoomsActivity extends AppCompatActivity {
         // cannot use two spaces at the same time.
         String code = date.replaceAll("/","") + "-"
                 + time.replaceAll(":","");
-        Map<String, Object> newReservation = new HashMap<>();
+        Map<String, String> newReservation = new HashMap<>();
         newReservation.put("location", location);
         newReservation.put("date", date);
         newReservation.put("time", time);

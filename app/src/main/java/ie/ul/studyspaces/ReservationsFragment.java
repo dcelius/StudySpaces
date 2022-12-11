@@ -1,10 +1,38 @@
 package ie.ul.studyspaces;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,29 +42,14 @@ import android.view.ViewGroup;
  */
 public class ReservationsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    // creating variables for our list view.
+    private ListView reservationsList;
+    ArrayList<String> reservationsArrayList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ReservationsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ReservationsFragment newInstance(String param1, String param2) {
         ReservationsFragment fragment = new ReservationsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,10 +61,6 @@ public class ReservationsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -60,4 +69,44 @@ public class ReservationsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_reservations, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        reservationsList = view.findViewById(R.id.listReservations);
+        reservationsArrayList = new ArrayList<String>();
+        getListItems();
+    }
+
+    private void getListItems() {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, reservationsArrayList);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/reservations").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot documentSnapshots) {
+                        if (documentSnapshots.isEmpty()) {
+                            return;
+                        } else {
+                            for (DocumentSnapshot doc : documentSnapshots.getDocuments()) {
+                                StringBuilder sb = new StringBuilder();
+                                for (Object value : doc.getData().values()) {
+                                    sb.append((String)value + " ");
+                                }
+                                String concatenatedString = sb.toString();
+                                reservationsArrayList.add(concatenatedString);
+                            }
+                            reservationsList.setAdapter(adapter);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), "Error fetching data", Toast.LENGTH_LONG).show();
+                        }
+                });
+    }
+
 }
