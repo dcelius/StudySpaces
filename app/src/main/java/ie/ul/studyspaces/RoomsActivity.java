@@ -8,16 +8,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-public class OptionFragment extends AppCompatActivity {
+public class RoomsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_option);
+        setContentView(R.layout.activity_rooms);
 
-        final ImageView imageView = findViewById(R.id.imageView);
+        final ImageView roomImage = findViewById(R.id.imageView2);
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -29,37 +28,37 @@ public class OptionFragment extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        imageView.setImageResource(R.drawable.library);
+                        roomImage.setImageResource(R.drawable.library);
                         break;
                     case 1:
-                        imageView.setImageResource(R.drawable.redraisinscafe);
+                        roomImage.setImageResource(R.drawable.redraisinscafe);
                         break;
                     case 2:
-                        imageView.setImageResource(R.drawable.csiscafe);
+                        roomImage.setImageResource(R.drawable.csiscafe);
                         break;
                     case 3:
-                        imageView.setImageResource(R.drawable.schrodingercommunal);
+                        roomImage.setImageResource(R.drawable.schrodingercommunal);
                         break;
                     case 4:
-                        imageView.setImageResource(R.drawable.healthsciencescafe);
+                        roomImage.setImageResource(R.drawable.healthsciencescafe);
                         break;
                     case 5:
-                        imageView.setImageResource(R.drawable.foundationatriumcommunal);
+                        roomImage.setImageResource(R.drawable.foundationatriumcommunal);
                         break;
                     case 6:
-                        imageView.setImageResource(R.drawable.kemmychilloutarea);
+                        roomImage.setImageResource(R.drawable.kemmychilloutarea);
                         break;
                     case 7:
-                        imageView.setImageResource(R.drawable.medicalschoolcafeandcommon);
+                        roomImage.setImageResource(R.drawable.medicalschoolcafeandcommon);
                         break;
                     case 8:
-                        imageView.setImageResource(R.drawable.analogcafe);
+                        roomImage.setImageResource(R.drawable.analogcafe);
                         break;
                     case 9:
-                        imageView.setImageResource(R.drawable.pesscafe);
+                        roomImage.setImageResource(R.drawable.pesscafe);
                         break;
                     case 10:
-                        imageView.setImageResource(R.drawable.medicalschoolatrium);
+                        roomImage.setImageResource(R.drawable.medicalschoolatrium);
                         break;
                 }
             }
