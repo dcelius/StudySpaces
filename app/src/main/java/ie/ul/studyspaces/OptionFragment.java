@@ -29,37 +29,37 @@ public class OptionFragment extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        imageView.setImageResource(R.drawable.Library);
+                        imageView.setImageResource(R.drawable.library);
                         break;
                     case 1:
-                        imageView.setImageResource(R.drawable.RedRaisinsCafe);
+                        imageView.setImageResource(R.drawable.redraisinscafe);
                         break;
                     case 2:
-                        imageView.setImageResource(R.drawable.CSISCafe);
+                        imageView.setImageResource(R.drawable.csiscafe);
                         break;
                     case 3:
-                        imageView.setImageResource(R.drawable.SchrodingerCommunal);
+                        imageView.setImageResource(R.drawable.schrodingercommunal);
                         break;
                     case 4:
-                        imageView.setImageResource(R.drawable.HealthSciencesCafe);
+                        imageView.setImageResource(R.drawable.healthsciencescafe);
                         break;
                     case 5:
-                        imageView.setImageResource(R.drawable.FoundationAtriumCommunal);
+                        imageView.setImageResource(R.drawable.foundationatriumcommunal);
                         break;
                     case 6:
-                        imageView.setImageResource(R.drawable.KemmyChillOutArea);
+                        imageView.setImageResource(R.drawable.kemmychilloutarea);
                         break;
                     case 7:
-                        imageView.setImageResource(R.drawable.MedicalSchoolCafeAndCommon);
+                        imageView.setImageResource(R.drawable.medicalschoolcafeandcommon);
                         break;
                     case 8:
-                        imageView.setImageResource(R.drawable.AnalogCafe);
+                        imageView.setImageResource(R.drawable.analogcafe);
                         break;
                     case 9:
-                        imageView.setImageResource(R.drawable.PESSCafe);
+                        imageView.setImageResource(R.drawable.pesscafe);
                         break;
                     case 10:
-                        imageView.setImageResource(R.drawable.MedicalSchoolAtrium);
+                        imageView.setImageResource(R.drawable.medicalschoolatrium);
                         break;
                 }
             }
