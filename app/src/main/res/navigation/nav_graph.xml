@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingFragment"
+>
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="ie.ul.studyspaces.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ie.ul.studyspaces.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="ie.ul.studyspaces.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="ie.ul.studyspaces.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="ie.ul.studyspaces.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_reservationsFragment"
+            app:destination="@id/reservationsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_roomsActivity"
+            app:destination="@id/roomsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationsFragment"
+        android:name="ie.ul.studyspaces.ReservationsFragment"
+        android:label="ReservationsFragment" />
+    <activity
+        android:id="@+id/roomsActivity"
+        android:name="ie.ul.studyspaces.RoomsActivity"
+        android:label="activity_rooms"
+        tools:layout="@layout/activity_rooms" />
+</navigation>

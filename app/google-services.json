@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "124165801082",
+    "firebase_url": "https://studyspaces-e22ad-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "studyspaces-e22ad",
+    "storage_bucket": "studyspaces-e22ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124165801082:android:179a6732f8a03c7a54a7c3",
+        "android_client_info": {
+          "package_name": "ie.ul.studyspaces"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124165801082-4ik9p4f1s7lnuujq39pseshkhptoalp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPL1QkW8DTSRtnUaPZwVcZTNeV0w4bDHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124165801082-4ik9p4f1s7lnuujq39pseshkhptoalp4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
