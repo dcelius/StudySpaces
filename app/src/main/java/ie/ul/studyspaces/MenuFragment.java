@@ -1,3 +1,5 @@
+// Authors: Dylan Celius
+
 package ie.ul.studyspaces;
 
 import android.os.Bundle;
@@ -46,6 +48,15 @@ public class MenuFragment extends Fragment {
         reservations = view.findViewById(R.id.btnReservations);
         maps = view.findViewById(R.id.btnMap);
 
+        // Map an OnClickListener to each button that calls the navigation action to its
+        //  respective destination.
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_menuFragment_to_mapsFragment);
+            }
+        });
+
         rooms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,13 +70,5 @@ public class MenuFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_menuFragment_to_reservationsFragment);
             }
         });
-
-        maps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_menuFragment_to_mapsFragment);
-            }
-        });
-
     }
 }

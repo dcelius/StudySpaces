@@ -103,6 +103,8 @@ public class RegisterFragment extends Fragment {
                             if (task.isSuccessful()) {
 
                                 mDatabase.collection("user")
+                                        //This line pulls the UID of the user, using that in the
+                                        //collection, allowing for access to that data later.
                                         .document(mAuth.getCurrentUser().getUid()).set(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override

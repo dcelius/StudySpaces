@@ -1,3 +1,5 @@
+// Authors: Ethan Conway, Dylan Celius
+
 package ie.ul.studyspaces;
 
 import androidx.annotation.NonNull;
@@ -43,11 +45,13 @@ public class RoomsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
 
+        // TimePickerDialog instantiation
         textTime = findViewById(R.id.textTime);
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // If the minutes is single digits, add a prefix 0 for text display
                         if (minute < 10)
                         {
                             textTime.setText(hourOfDay + ":0" + minute);
@@ -56,9 +60,11 @@ public class RoomsActivity extends AppCompatActivity {
                         }
                     }
                 },
+                // Set the default values to the current time
                 Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
                 Calendar.getInstance().get(Calendar.MINUTE),
                 false);
+        // Link the OnClickListener with the TextView object for time
         textTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,18 +72,23 @@ public class RoomsActivity extends AppCompatActivity {
             }
         });
 
+        // DatePickerDialog instantiation
         textDate = findViewById(R.id.textDate);
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        textDate.setText(dayOfMonth + "/" + month + "/" + year);
+                        // Since month starts at 0 in the date picker, add 1 for text display
+                        textDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                     }
                 },
+                // Set the default values to today's date
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        // Restrict to only dates starting from 1 second before instantiation
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        // Link the OnClickListener with the TextView object for date
         textDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,12 +152,13 @@ public class RoomsActivity extends AppCompatActivity {
     public void OnClickStoreData (View view) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+        // Fetch the destination collection by using the active user's UID
         CollectionReference reservations = db.collection("user/" + uid + "/reservations");
 
         String location = spinner.getSelectedItem().toString();
         String date = textDate.getText().toString();
         String time = textTime.getText().toString();
+        // Catch blocks for if the date or time fields are empty.
         if (date.isEmpty()){
             Toast.makeText(getApplicationContext(), "Enter a valid date", Toast.LENGTH_SHORT).show();
             return;
@@ -156,8 +168,8 @@ public class RoomsActivity extends AppCompatActivity {
             return;
         }
         // The exclusion of location from the unique reservation code is that it can be overwritten
-        // if the location changes but the date and time do not - which makes sense as a person
-        // cannot use two spaces at the same time.
+        //  if the location changes but the date and time do not - which makes sense as a person
+        //  cannot use two spaces at the same time.
         String code = date.replaceAll("/","") + "-"
                 + time.replaceAll(":","");
         Map<String, String> newReservation = new HashMap<>();

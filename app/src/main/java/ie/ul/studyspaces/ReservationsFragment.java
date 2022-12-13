@@ -1,3 +1,5 @@
+// Authors: Dylan Celius
+
 package ie.ul.studyspaces;
 
 import static android.content.ContentValues.TAG;
@@ -34,29 +36,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ReservationsFragment#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
 public class ReservationsFragment extends Fragment {
 
-    // creating variables for our list view.
     private ListView reservationsList;
     ArrayList<String> reservationsArrayList;
-
-
-    public static ReservationsFragment newInstance(String param1, String param2) {
-        ReservationsFragment fragment = new ReservationsFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public ReservationsFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +49,6 @@ public class ReservationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_reservations, container, false);
     }
 
@@ -79,16 +61,22 @@ public class ReservationsFragment extends Fragment {
     }
 
     private void getListItems() {
+        // Initialize the ArrayAdapter for use in a ListView
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, reservationsArrayList);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/reservations").get()
+        // Using the UID of the active user, pull all documents located in their reservations collection
+        db.collection("user/" + FirebaseAuth.getInstance()
+                        .getCurrentUser().getUid() + "/reservations").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    //Since get() is asynchronous, an OnSuccessListener is used
                     @Override
                     public void onSuccess(QuerySnapshot documentSnapshots) {
                         if (documentSnapshots.isEmpty()) {
                             return;
                         } else {
+                            // Loop through each document, compiling all entries into one string
+                            //  which is then added to the array
                             for (DocumentSnapshot doc : documentSnapshots.getDocuments()) {
                                 StringBuilder sb = new StringBuilder();
                                 for (Object value : doc.getData().values()) {
@@ -97,6 +85,7 @@ public class ReservationsFragment extends Fragment {
                                 String concatenatedString = sb.toString();
                                 reservationsArrayList.add(concatenatedString);
                             }
+                            // Load in the adapter to the ListView object
                             reservationsList.setAdapter(adapter);
                         }
                     }
