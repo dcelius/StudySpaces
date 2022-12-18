@@ -103,12 +103,12 @@ public class RegisterFragment extends Fragment {
                             if (task.isSuccessful()) {
 
                                 mDatabase.collection("user")
-                                        .add(user)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        .document(mAuth.getCurrentUser().getUid()).set(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
-                                            public void onSuccess(DocumentReference documentReference) {
-                                                Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
+                                            public void onSuccess(Void aVoid) {
                                                 Toast.makeText(getActivity(), "Your registration was successful", Toast.LENGTH_SHORT).show();
+                                                Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
